@@ -1,6 +1,6 @@
 import UIKit
 
-class FavoriteViewController: UIViewController {
+final class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }

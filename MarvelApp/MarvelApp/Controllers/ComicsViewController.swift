@@ -1,7 +1,6 @@
 import UIKit
 
-class ComicsViewController: UIViewController {
-
+final class ComicsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
