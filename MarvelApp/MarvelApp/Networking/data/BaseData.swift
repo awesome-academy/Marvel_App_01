@@ -1,8 +1,8 @@
 import Foundation
 
-struct CharacterBaseData: Codable {
+struct BaseData<T: Codable>: Codable {
     let responseCode: Int
-    let apiDataSource: CharacterDataSource?
+    let apiDataSource: T?
     
     enum CodingKeys: String, CodingKey {
         case responseCode = "code"
