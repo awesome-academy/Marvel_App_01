@@ -3,15 +3,15 @@ import CommonCrypto
 
 class RequestHandler {
     private var limit: Int = 30
-    func getCharacters(pageNumber: Int = 0) -> URLRequest? {
+    
+    func getCharactersURLRequest(pageNumber: Int = 0) -> URLRequest? {
         let endpoint = "/v1/public/characters"
         let url = Constants.baseURL + endpoint + buildQueryString(pageNumber: pageNumber, isCharacterList: true)
-        print(url)
         guard let url = URL(string: url) else { return nil }
         return URLRequest(url: url)
     }
     
-    func getComics(id: Int) -> URLRequest? {
+    func getComicsURLRequest(id: Int) -> URLRequest? {
         let endpoint = "/v1/public/characters/\(id)/comics"
         let url = Constants.baseURL + endpoint + buildQueryString()
         guard let url = URL(string: url) else { return nil }

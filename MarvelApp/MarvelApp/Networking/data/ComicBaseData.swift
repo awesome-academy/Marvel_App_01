@@ -1,8 +1,9 @@
 import Foundation
 
-struct CharacterBaseData: Codable {
-    let responseCode: Int?
-    let apiDataSource: CharacterDataSource?
+struct ComicBaseData: Codable {
+    let responseCode: Int
+    let apiDataSource: ComicBookDataSource?
+    
     enum CodingKeys: String, CodingKey {
         case responseCode = "code"
         case apiDataSource = "data"

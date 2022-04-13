@@ -7,14 +7,16 @@
 
 import Foundation
 
-class APICaller {
-    static let shared = APICaller()
+class API {
+    static let shared = API()
+    
     private init() {
         print("APICaller Singleton initialized!")
     }
+    
     func decoderWithRequest<T: Decodable> (
         _ type: T.Type,
-        fromURLRequest urlRequest: URLRequest ,
+        fromURLRequest urlRequest: URLRequest,
         completion: @escaping (T?, Error?) -> Void) {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1

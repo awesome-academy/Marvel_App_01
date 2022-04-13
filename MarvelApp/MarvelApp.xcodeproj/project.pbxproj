@@ -72,6 +72,7 @@
 		4A096A402804131E00C70246 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				4AF9FA0B280666BF005D3AA4 /* data */,
 				4ADE94F82805075C008046E5 /* RequestHandler.swift */,
 				4AF9FA032805A4E9005D3AA4 /* API.swift */,
 			);
@@ -116,7 +117,6 @@
 			children = (
 				4A096A41280413D300C70246 /* Character.swift */,
 				4ADE94EE28050693008046E5 /* CharacterDataSource.swift */,
-				4ADE94F0280506AF008046E5 /* CharacterBaseData.swift */,
 				4ADE94F2280506D3008046E5 /* CharacterComics.swift */,
 			);
 			path = CharaterModels;
@@ -134,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				4ADE94E828050629008046E5 /* Comic.swift */,
-				4ADE94EA2805064A008046E5 /* ComicBaseData.swift */,
 				4ADE94EC28050663008046E5 /* ComicBookDataSource.swift */,
 			);
 			path = ComicModels;
@@ -201,6 +200,15 @@
 				4AF9FA0928065DF9005D3AA4 /* String+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AF9FA0B280666BF005D3AA4 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				4ADE94EA2805064A008046E5 /* ComicBaseData.swift */,
+				4ADE94F0280506AF008046E5 /* CharacterBaseData.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
