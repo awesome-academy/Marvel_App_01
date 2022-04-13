@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuK-b7-lLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-878" y="21"/>
+            <point key="canvasLocation" x="-901" y="21"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="h67-GW-nDU">
@@ -37,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0U-WJ-str" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-245" y="21"/>
+            <point key="canvasLocation" x="-270" y="21"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="geE-Ch-sTd">
@@ -53,23 +54,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJf-Sr-Fin" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="21"/>
+            <point key="canvasLocation" x="396" y="21"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="a2o-Ii-854">
             <objects>
                 <viewController id="L5P-1N-42M" customClass="HomeViewController" customModule="MarvelApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qqB-aQ-f2r" customClass="H">
+                    <view key="view" contentMode="scaleToFill" id="qqB-aQ-f2r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iV5-tU-lyM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterImage2" id="ElT-hN-Bg1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rbJ-Ou-fGh"/>
-                        <color key="backgroundColor" red="0.89411771299999998" green="0.63921570780000003" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="wMs-xJ-yPV"/>
+                    <navigationItem key="navigationItem" id="UbV-lV-yXM"/>
+                    <connections>
+                        <outlet property="homeTableView" destination="iV5-tU-lyM" id="Bzc-dk-qCi"/>
+                        <outlet property="imageHeaderView" destination="ElT-hN-Bg1" id="TKe-O7-gW2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6q6-Yc-vmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1539" y="21"/>
+            <point key="canvasLocation" x="-1539.1304347826087" y="853.79464285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ypG-dm-cjA">
@@ -78,11 +94,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nb4-ra-84a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.91372549530000002" green="0.9098039269" blue="0.90196073060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="selectedImageTintColor" systemColor="tintColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="L5P-1N-42M" kind="relationship" relationship="viewControllers" id="XkM-4p-o1i"/>
+                        <segue destination="IbR-U1-s8T" kind="relationship" relationship="viewControllers" id="XkM-4p-o1i"/>
                         <segue destination="aB9-Lj-1zD" kind="relationship" relationship="viewControllers" id="IWb-Wn-6a8"/>
                         <segue destination="oxf-9u-5VZ" kind="relationship" relationship="viewControllers" id="Egy-lT-eKQ"/>
                         <segue destination="kuj-xd-iUT" kind="relationship" relationship="viewControllers" id="K74-Fa-HRU"/>
@@ -92,9 +108,38 @@
             </objects>
             <point key="canvasLocation" x="-577" y="-733"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="qe1-Vg-Rmf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IbR-U1-s8T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="wMs-xJ-yPV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hvy-fe-o0W">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="L5P-1N-42M" kind="relationship" relationship="rootViewController" id="1yU-6a-hdL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Puj-Sd-u33" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1539.1304347826087" y="20.758928571428569"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="posterImage2" width="405" height="600"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
