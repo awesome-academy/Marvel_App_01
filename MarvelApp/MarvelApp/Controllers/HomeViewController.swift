@@ -10,8 +10,9 @@ final class HomeViewController: UIViewController {
         "Popular"
     ]
 
-    @IBOutlet private weak var homeTableView: UITableView!
+    private var headerInMyList = false
 
+    @IBOutlet private weak var homeTableView: UITableView!
     @IBOutlet weak var imageHeaderView: UIImageView!
 
     private enum LayoutOptions {
@@ -24,7 +25,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.register(CollectionViewTableViewCell.nib,
-                               forCellReuseIdentifier: CollectionViewTableViewCell.indentifier)
+                               forCellReuseIdentifier: "CollectionViewTableViewCell")
         homeTableView.delegate = self
         homeTableView.dataSource = self
 
@@ -50,13 +51,39 @@ final class HomeViewController: UIViewController {
         imageLogo = imageLogo?.withRenderingMode(.alwaysOriginal)
 
         let imageSearch = UIImage(systemName: "magnifyingglass")
+        let searchButton = UIBarButtonItem(
+            image: imageSearch,
+            style: .plain,
+            target: self,
+            action: #selector(searchButtonTapped)
+        )
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageLogo, style: .done, target: self, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: imageSearch, style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem = searchButton
 
         navigationController?.navigationBar.tintColor = .white
     }
 
+    @objc private func searchButtonTapped() {
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
+    }
+
+    @IBAction private func likeButtonTapped(_ sender: UIButton) {
+        guard let image = UIImage(systemName: "heart.fill") else { return }
+
+        if headerInMyList != true {
+            headerInMyList = true
+            sender.setImage(image, for: .normal)
+        } else {
+            headerInMyList = false
+            sender.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    @IBAction private func viewButtonTapped(_ sender: UIButton) {
+        let detailViewController = DetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -74,7 +101,7 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CollectionViewTableViewCell.indentifier, for: indexPath) as? CollectionViewTableViewCell
+            withIdentifier: "CollectionViewTableViewCell", for: indexPath) as? CollectionViewTableViewCell
         else {
             return UITableViewCell()
         }
