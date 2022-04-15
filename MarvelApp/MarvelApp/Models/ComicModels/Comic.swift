@@ -8,12 +8,12 @@ struct Comic: Codable {
     let pageCount: Int?
     let cover: Thumbnail?
     let fallbackCover: [Thumbnail]?
-    
+
     enum CodingKeys: String, CodingKey {
         case cover = "thumbnail", fallbackCover = "images", id
         case issueNumber, pageCount, title, description
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         cover = try values.decodeIfPresent(Thumbnail.self, forKey: .cover)

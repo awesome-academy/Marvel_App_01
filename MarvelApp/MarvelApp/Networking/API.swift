@@ -4,16 +4,15 @@
 //
 //  Created by Lê Tiến Đạt on 12/04/2022.
 //
-
 import Foundation
 
 class API {
     static let shared = API()
-    
+
     private init() {
         print("APICaller Singleton initialized!")
     }
-    
+
     func decoderWithRequest<T: Decodable> (
         _ type: T.Type,
         fromURLRequest urlRequest: URLRequest,
