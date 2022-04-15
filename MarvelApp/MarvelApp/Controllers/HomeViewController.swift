@@ -24,10 +24,7 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeTableView.register(CollectionViewTableViewCell.nib,
-                               forCellReuseIdentifier: "CollectionViewTableViewCell")
-        homeTableView.delegate = self
-        homeTableView.dataSource = self
+        setupHomeTableView()
 
         setupNaviBar()
 
@@ -43,6 +40,13 @@ final class HomeViewController: UIViewController {
         ]
         gradientLayer.frame = imageHeaderView.bounds
         imageHeaderView?.layer.addSublayer(gradientLayer)
+    }
+
+    private func setupHomeTableView() {
+        homeTableView.register(CollectionViewTableViewCell.nib,
+                               forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
+        homeTableView.delegate = self
+        homeTableView.dataSource = self
     }
 
     private func setupNaviBar() {
@@ -72,13 +76,8 @@ final class HomeViewController: UIViewController {
     @IBAction private func likeButtonTapped(_ sender: UIButton) {
         guard let image = UIImage(systemName: "heart.fill") else { return }
 
-        if headerInMyList != true {
-            headerInMyList = true
-            sender.setImage(image, for: .normal)
-        } else {
-            headerInMyList = false
-            sender.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+        sender.setImage(headerInMyList ? UIImage(systemName: "heart") : image, for: .normal)
+           headerInMyList.toggle()
     }
     @IBAction private func viewButtonTapped(_ sender: UIButton) {
         let detailViewController = DetailViewController()
@@ -101,7 +100,7 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "CollectionViewTableViewCell", for: indexPath) as? CollectionViewTableViewCell
+            withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell
         else {
             return UITableViewCell()
         }
@@ -126,3 +125,4 @@ extension HomeViewController: UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: LayoutOptions.textSizeHeader, weight: .semibold)
     }
 }
+

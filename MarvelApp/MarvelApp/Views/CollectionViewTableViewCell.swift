@@ -17,7 +17,7 @@ final class CollectionViewTableViewCell: UITableViewCell, ReuseableView {
     private func setupView() {
         selectionStyle = .none
         collectionView.register(HomeCollectionViewCell.nib,
-                                forCellWithReuseIdentifier: "HomeCollectionViewCell")
+                                forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -38,7 +38,7 @@ extension CollectionViewTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
     -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier,
                                                       for: indexPath)
         cell.backgroundColor = .systemCyan
         cell.layer.cornerRadius = 7
