@@ -34,9 +34,3 @@ class RequestHandler {
         return unhashedString.encodeMD5()
     }
 }
-
-
-//enum EndPoint: String {
-//    case charaterEndPoint = "/v1/public/characters"
-//    case comicEndPoint = "/v1/public/characters"
-//}

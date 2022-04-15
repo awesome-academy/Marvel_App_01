@@ -8,10 +8,7 @@
 import UIKit
 
 final class HomeCollectionViewCell: UICollectionViewCell, ReuseableView {
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }
